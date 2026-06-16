@@ -1,0 +1,122 @@
+# =============================================================
+#  .gitignore for xai-healthcare-NB-lecture
+#  Jupyter / Python / Data Science — Medical AI Course Repo
+# =============================================================
+
+# ----- Jupyter Notebook -----
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Strip notebook outputs before committing (optional — remove
+# these two lines if you WANT outputs embedded in the .ipynb)
+# *.ipynb   ← do NOT ignore notebooks themselves
+
+# ----- Python -----
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+wheels/
+pip-wheel-metadata/
+MANIFEST
+
+# ----- Virtual environments -----
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# ----- Large data files (auto-downloaded by NB0) -----
+*.npz
+*.npy
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+
+# Specific large datasets — downloaded at runtime, not stored in repo
+pneumoniamnist_64.npz
+medmnist/
+
+# ----- Model checkpoints (can be very large) -----
+*.pt
+*.pth
+*.ckpt
+*.keras
+*.pb
+saved_model/
+checkpoints/
+runs/
+
+# ----- Apple HealthKit exports (PRIVACY — never commit) -----
+export.xml
+apple_watch_live/
+*.xml
+
+# ----- Generated output files -----
+*.csv.bak
+nb*_output/
+outputs/
+results/
+figures_generated/
+
+# ----- Streamlit -----
+.streamlit/secrets.toml
+
+# ----- OS files -----
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ----- IDEs and editors -----
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+
+# ----- ngrok -----
+ngrok
+ngrok.exe
+.ngrok2/
+
+# ----- Logs and temp files -----
+*.log
+*.tmp
+*.temp
+nohup.out
+.cache/
+tmp/
+temp/
+
+# ----- Flask / server -----
+instance/
+.webassets-cache
+flask_session/
+
+# ----- Security — never commit keys or credentials -----
+.env
+secrets.json
+credentials.json
+api_keys.txt
+*.pem
+*.key
