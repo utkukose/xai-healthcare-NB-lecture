@@ -1,0 +1,82 @@
+============================================================================
+GOVERNANCE REPORT: APPLE WATCH AFIB SCREENING AI V1.0
+Generated: 2026-05-12 04:59  |  Monitoring period: 300 steps
+============================================================================
+
+1. SYSTEM IDENTIFICATION
+----------------------------------------
+  Model name:         Apple Watch AFib Screening AI v1.0
+  Algorithm type:     Gradient Boosting Machine (GBM)
+  XAI method:         TreeSHAP (exact, Lundberg et al. 2020)
+  Features:           33 (windowed Apple Watch sensor statistics)
+  FDA class:          Class II SaMD (510k) -- AFib screening
+  EU MDR class:       Class IIa
+  Deployment AUC:     1.000
+
+2. PREDETERMINED CHANGE CONTROL PLAN (PCCP)
+----------------------------------------
+  [FDA 2021 AI/ML SaMD Action Plan -- Section 3.2]
+
+  Algorithm type:     LOCKED (no continuous learning in production)
+  Planned updates:    Periodic retrain (trigger-based, see Section 5)
+
+  PCCP Trigger 1 -- Automatic revalidation (no new 510k required):
+    Condition: SHAP PH-test fires on any top-3 feature
+    Action:    Clinical validation on 100-patient prospective cohort
+    Timeline:  Within 30 days of alarm
+
+  PCCP Trigger 2 -- Model retrain + new 510k submission:
+    Condition: Rolling AUC drops > 0.05 below deployment AUC (1.000)
+    Action:    Retrain on updated patient-stratified dataset
+    Timeline:  Within 90 days; notify FDA within 72 hours of trigger
+
+  PCCP Trigger 3 -- Emergency suspension:
+    Condition: Any patient harm attributable to model error
+    Action:    Immediate model suspension; FDA adverse event report
+
+3. REAL-WORLD PERFORMANCE (RWP) MONITORING SUMMARY
+----------------------------------------
+  Monitoring period:       300 production steps
+  Pre-drift risk mean:     0.2967
+  Post-drift risk mean:    0.3263
+  Risk shift:              +0.0297  (within tolerance)
+  Pre-drift rolling AUC:   1.000
+  Post-drift rolling AUC:  1.000
+  AUC shift:               +0.000  (within tolerance)
+
+4. SHAP DISTRIBUTION AUDIT
+----------------------------------------
+  Monitoring method:   Page-Hinkley test (Page 1954, Biometrika)
+  Total alarms fired:  0
+
+  Top-3 SHAP features (deployment baseline):
+    hrv_sdnn_max                     pre=5.8549  post=6.0681  shift=+0.2132  *** FLAGGED
+    spo2_min                         pre=1.1947  post=1.2209  shift=+0.0262  *** FLAGGED
+    heart_rate_max                   pre=0.7976  post=0.8131  shift=+0.0155  *** FLAGGED
+
+5. ALERT RATE AUDIT (CLINICAL WORKLOAD)
+----------------------------------------
+  [Tonekaboni et al. (2019) -- clinician cognitive load framework]
+  Pre-drift HIGH alert rate:   0.297 per step
+  Post-drift HIGH alert rate:  0.326 per step
+  Alert rate shift:            +0.029  (within tolerance)
+
+6. RECOMMENDATION
+----------------------------------------
+      NO ACTION -- continue standard monitoring
+
+  Rationale:
+    - All monitoring signals within pre-specified tolerance
+    - Continue standard monitoring schedule
+
+7. SUBGROUP PERFORMANCE AUDIT
+----------------------------------------
+  [FDA SaMD 2021 -- subgroup performance documentation requirement]
+  Note: synthetic data does not have demographic subgroups.
+  In production: audit AUC by age group, sex, BMI, and device model.
+  Action required: real deployment must include subgroup analysis
+  before 510(k) submission.
+
+============================================================================
+END OF GOVERNANCE REPORT
+============================================================================

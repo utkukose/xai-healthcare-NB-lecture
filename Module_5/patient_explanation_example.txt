@@ -1,0 +1,39 @@
+====================================================================
+CLINICAL AI ALERT — SEPSIS EARLY WARNING SYSTEM
+Patient reference: #9 | Generated: 2026-05-12 06:31
+====================================================================
+
+RISK ASSESSMENT: HIGH (100% probability)
+RECOMMENDATION: URGENT ATTENTION REQUIRED
+
+WHY THIS ALERT WAS GENERATED:
+The monitoring system identified the following concerns:
+
+  - Your heart-pressure ratio: heart-pressure ratio was 0.70 (raised the alert level)
+  - Your oxygen level: blood oxygen was 98.5% (lowered the alert level)
+  - Your temperature: body temperature was 36.4C (raised the alert level)
+  - Your breathing rate: breathing rate was 19 breaths/min (raised the alert level)
+  - hr_trend: 0.002 (lowered the alert level)
+
+WHAT THIS MEANS:
+  This is an AI-generated alert, not a diagnosis.
+  A qualified clinician must review this assessment before any treatment.
+  The AI system supports clinical judgment -- it does not replace it.
+
+YOUR RIGHTS (GDPR Article 22 / EU AI Act Article 14):
+  You have the right to:
+  1. Request human review of this automated assessment
+  2. Contest this decision and provide additional information
+  3. Request a full explanation of the factors considered
+  4. Opt out of automated monitoring (subject to clinical safety review)
+
+HOW TO CONTEST THIS ASSESSMENT:
+  Contact the clinical team and reference this alert ID.
+  You may request that a senior clinician reviews the AI output.
+
+SYSTEM INFORMATION (Article 13 EU AI Act):
+  Model: Gradient Boosting Machine (GBM)
+  XAI method: TreeSHAP (Lundberg et al. 2020)
+  EU AI Act class: HIGH RISK
+  Human oversight: MANDATORY before any clinical action
+====================================================================
